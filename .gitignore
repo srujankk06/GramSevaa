@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# SQLite database file (auto-generated at runtime)
+panchayat_issues.db
+
+# npm logs
+npm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
