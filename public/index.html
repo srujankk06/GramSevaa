@@ -621,6 +621,59 @@
 
     /* Register toggle */
     #register-form { display: none; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       LANGUAGE SWITCHER
+    ════════════════════════════════════════════════════════════════════ */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      justify-content: center;
+    }
+    .lang-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.82rem; font-weight: 700;
+      cursor: pointer;
+      border: 2px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-2);
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active {
+      border-color: var(--primary);
+      background: rgba(139,92,246,.18);
+      color: var(--text-1);
+      box-shadow: 0 0 14px rgba(139,92,246,.35);
+    }
+    .lang-btn:hover:not(.active) {
+      border-color: rgba(139,92,246,.35);
+      color: var(--text-1);
+    }
+    .lang-divider {
+      width: 1px; height: 20px;
+      background: var(--border);
+    }
+    /* Nav lang switcher (smaller) */
+    .nav-lang-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem; font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-2);
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .nav-lang-btn:hover {
+      border-color: var(--primary);
+      color: var(--text-1);
+    }
   </style>
 </head>
 
@@ -635,67 +688,74 @@
   <div id="page-login" class="page active">
     <div class="login-hero">
       <div class="logo-ring">🌿</div>
-      <h1 class="kn">ಗ್ರಾಮ ಸೇವಾ</h1>
-      <p class="kn">ಪಂಚಾಯತ್ ದೂರು ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ</p>
+      <h1 id="hero-title">ಗ್ರಾಮ ಸೇವಾ</h1>
+      <p id="hero-sub">ಪಂಚಾಯತ್ ದೂರು ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ</p>
     </div>
 
     <div class="login-box">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="lang-btn-kn" onclick="setLang('kn')">🇮🇳 ಕನ್ನಡ</button>
+        <div class="lang-divider"></div>
+        <button class="lang-btn" id="lang-btn-en" onclick="setLang('en')">🇬🇧 English</button>
+      </div>
+
       <!-- Role selector -->
       <div class="role-tabs" id="role-tabs">
         <div class="role-tab active" id="tab-citizen" onclick="selectRole('citizen')">
           <i class="fa-solid fa-user"></i>
-          <span class="kn">ನಾಗರಿಕ</span>
+          <span id="role-citizen-label">ನಾಗರಿಕ</span>
         </div>
         <div class="role-tab" id="tab-admin" onclick="selectRole('admin')">
           <i class="fa-solid fa-landmark"></i>
-          <span class="kn">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
+          <span id="role-admin-label">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
         </div>
       </div>
 
       <!-- Login form -->
       <div class="card p-6" id="login-form">
         <div class="input-group">
-          <label class="kn" for="login-phone">📱 ಫೋನ್ ಸಂಖ್ಯೆ / ID</label>
+          <label for="login-phone" id="label-phone">📱 ಫೋನ್ ಸಂಖ್ಯೆ / ID</label>
           <input type="text" id="login-phone" placeholder="ಫೋನ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ" />
         </div>
         <div class="input-group">
-          <label class="kn" for="login-pass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
+          <label for="login-pass" id="label-pass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
           <input type="password" id="login-pass" placeholder="ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ" onkeydown="if(event.key==='Enter') doLogin()" />
         </div>
         <button class="btn btn-primary btn-full" onclick="doLogin()" id="login-btn">
-          <i class="fa-solid fa-right-to-bracket"></i> <span class="kn">ಪ್ರವೇಶಿಸಿ</span>
+          <i class="fa-solid fa-right-to-bracket"></i> <span id="login-btn-text">ಪ್ರವೇಶಿಸಿ</span>
         </button>
-        <div class="login-footer kn" id="login-register-link">
-          ಹೊಸ ನಾಗರಿಕರೇ? <a onclick="showRegister()">ಇಲ್ಲಿ ನೋಂದಾಯಿಸಿ</a>
+        <div class="login-footer" id="login-register-link">
+          <span id="new-citizen-text">ಹೊಸ ನಾಗರಿಕರೇ?</span> <a onclick="showRegister()" id="register-link-text">ಇಲ್ಲಿ ನೋಂದಾಯಿಸಿ</a>
         </div>
       </div>
 
       <!-- Register form -->
       <div class="card p-6" id="register-form">
-        <div class="section-title kn"><i class="fa-solid fa-user-plus"></i> ಹೊಸ ಖಾತೆ ತೆರೆಯಿರಿ</div>
+        <div class="section-title"><i class="fa-solid fa-user-plus"></i> <span id="reg-title">ಹೊಸ ಖಾತೆ ತೆರೆಯಿರಿ</span></div>
         <div class="input-group">
-          <label class="kn" for="reg-name">👤 ಹೆಸರು</label>
+          <label for="reg-name" id="label-reg-name">👤 ಹೆಸರು</label>
           <input type="text" id="reg-name" placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" />
         </div>
         <div class="input-group">
-          <label class="kn" for="reg-phone">📱 ಫೋನ್ ಸಂಖ್ಯೆ</label>
+          <label for="reg-phone" id="label-reg-phone">📱 ಫೋನ್ ಸಂಖ್ಯೆ</label>
           <input type="text" id="reg-phone" placeholder="10 ಅಂಕೆಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" />
         </div>
         <div class="input-group">
-          <label class="kn" for="reg-pass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
+          <label for="reg-pass" id="label-reg-pass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
           <input type="password" id="reg-pass" placeholder="ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು" />
         </div>
         <button class="btn btn-accent btn-full" onclick="doRegister()">
-          <i class="fa-solid fa-user-check"></i> <span class="kn">ನೋಂದಾಯಿಸಿ</span>
+          <i class="fa-solid fa-user-check"></i> <span id="reg-btn-text">ನೋಂದಾಯಿಸಿ</span>
         </button>
-        <div class="login-footer kn" style="margin-top:14px">
-          ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ? <a onclick="showLogin()">ಲಾಗಿನ್ ಮಾಡಿ</a>
+        <div class="login-footer" style="margin-top:14px">
+          <span id="already-account-text">ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ?</span> <a onclick="showLogin()" id="login-link-text">ಲಾಗಿನ್ ಮಾಡಿ</a>
         </div>
       </div>
 
       <!-- Demo credentials hint -->
       <div style="margin-top:16px; text-align:center; font-size:0.75rem; color:var(--text-3);">
-        <span class="kn">ಡೆಮೋ:</span>
+        <span id="demo-label">ಡೆಮೋ:</span>
         Admin → <strong>admin / admin123</strong> &nbsp;|&nbsp;
         Citizen → <strong>9900000001 / citizen1</strong>
       </div>
@@ -711,19 +771,20 @@
       <div class="topnav-brand">
         <div class="ring">🌿</div>
         <div>
-          <div class="brand-name kn">ಗ್ರಾಮ ಸೇವಾ</div>
-          <div class="brand-sub kn">ನಾಗರಿಕ ಪೋರ್ಟಲ್</div>
+          <div class="brand-name" id="c-brand-name">ಗ್ರಾಮ ಸೇವಾ</div>
+          <div class="brand-sub" id="c-brand-sub">ನಾಗರಿಕ ಪೋರ್ಟಲ್</div>
         </div>
       </div>
       <div class="nav-tabs">
-        <button class="nav-tab active kn" onclick="citizenTab('new')"    id="ctab-new">ದೂರು ಸಲ್ಲಿಸಿ</button>
-        <button class="nav-tab kn"        onclick="citizenTab('my')"     id="ctab-my">ನನ್ನ ದೂರುಗಳು</button>
-        <button class="nav-tab kn"        onclick="citizenTab('feedback')" id="ctab-feedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
+        <button class="nav-tab active" onclick="citizenTab('new')"    id="ctab-new">ದೂರು ಸಲ್ಲಿಸಿ</button>
+        <button class="nav-tab"        onclick="citizenTab('my')"     id="ctab-my">ನನ್ನ ದೂರುಗಳು</button>
+        <button class="nav-tab"        onclick="citizenTab('feedback')" id="ctab-feedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
       </div>
       <div class="topnav-user">
+        <button class="nav-lang-btn" onclick="setLang(currentLang === 'kn' ? 'en' : 'kn')" id="c-lang-toggle">🌐 EN</button>
         <div class="user-chip">
           <i class="fa-solid fa-user"></i>
-          <span id="citizen-name-disp" class="kn"></span>
+          <span id="citizen-name-disp"></span>
         </div>
         <button class="btn btn-ghost btn-sm" onclick="doLogout()">
           <i class="fa-solid fa-sign-out-alt"></i>
@@ -832,18 +893,19 @@
       <div class="topnav-brand">
         <div class="ring">🌿</div>
         <div>
-          <div class="brand-name kn">ಗ್ರಾಮ ಸೇವಾ</div>
-          <div class="brand-sub kn">ಆಡಳಿತ ಪ್ಯಾನಲ್</div>
+          <div class="brand-name" id="a-brand-name">ಗ್ರಾಮ ಸೇವಾ</div>
+          <div class="brand-sub" id="a-brand-sub">ಆಡಳಿತ ಪ್ಯಾನಲ್</div>
         </div>
       </div>
       <div class="nav-tabs">
-        <button class="nav-tab active kn" onclick="adminTab('dashboard')" id="atab-dashboard">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</button>
-        <button class="nav-tab kn"        onclick="adminTab('feedback')"  id="atab-feedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
+        <button class="nav-tab active" onclick="adminTab('dashboard')" id="atab-dashboard">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</button>
+        <button class="nav-tab"        onclick="adminTab('feedback')"  id="atab-feedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
       </div>
       <div class="topnav-user">
+        <button class="nav-lang-btn" onclick="setLang(currentLang === 'kn' ? 'en' : 'kn')" id="a-lang-toggle">🌐 EN</button>
         <div class="user-chip">
           <i class="fa-solid fa-landmark"></i>
-          <span class="kn">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
+          <span id="a-admin-label">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
         </div>
         <button class="btn btn-ghost btn-sm" onclick="doLogout()">
           <i class="fa-solid fa-sign-out-alt"></i>
@@ -1076,8 +1138,188 @@ let popupTicketData    = null;
 let adminPollInterval  = null;
 let prevIssueCount     = 0;
 let lastSeenTickets    = new Set();
+let currentLang        = 'kn';
 
 const API = '';  // same origin
+
+// ─── i18n Translations ────────────────────────────────────────────────────────
+const T = {
+  kn: {
+    heroTitle:          'ಗ್ರಾಮ ಸೇವಾ',
+    heroSub:            'ಪಂಚಾಯತ್ ದೂರು ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ',
+    roleCitizen:        'ನಾಗರಿಕ',
+    roleAdmin:          'ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ',
+    labelPhone:         '📱 ಫೋನ್ ಸಂಖ್ಯೆ / ID',
+    labelPass:          '🔒 ಪಾಸ್‌ವರ್ಡ್',
+    phonePlaceholder:   'ಫೋನ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ',
+    passPlaceholder:    'ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ',
+    loginBtn:           'ಪ್ರವೇಶಿಸಿ',
+    newCitizen:         'ಹೊಸ ನಾಗರಿಕರೇ?',
+    registerLink:       'ಇಲ್ಲಿ ನೋಂದಾಯಿಸಿ',
+    regTitle:           'ಹೊಸ ಖಾತೆ ತೆರೆಯಿರಿ',
+    labelRegName:       '👤 ಹೆಸರು',
+    labelRegPhone:      '📱 ಫೋನ್ ಸಂಖ್ಯೆ',
+    labelRegPass:       '🔒 ಪಾಸ್‌ವರ್ಡ್',
+    regNamePh:          'ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು',
+    regPhonePh:         '10 ಅಂಕೆಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ',
+    regPassPh:          'ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು',
+    regBtn:             'ನೋಂದಾಯಿಸಿ',
+    alreadyAccount:     'ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ?',
+    loginLink:          'ಲಾಗಿನ್ ಮಾಡಿ',
+    demo:               'ಡೆಮೋ:',
+    brandName:          'ಗ್ರಾಮ ಸೇವಾ',
+    cBrandSub:          'ನಾಗರಿಕ ಪೋರ್ಟಲ್',
+    aBrandSub:          'ಆಡಳಿತ ಪ್ಯಾನಲ್',
+    aAdminLabel:        'ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ',
+    ctabNew:            'ದೂರು ಸಲ್ಲಿಸಿ',
+    ctabMy:             'ನನ್ನ ದೂರುಗಳು',
+    ctabFeedback:       'ಪ್ರತಿಕ್ರಿಯೆ',
+    atabDashboard:      'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
+    atabFeedback:       'ಪ್ರತಿಕ್ರಿಯೆ',
+    langToggle:         '🌐 EN',
+    toastLoginErr:      'ಫೋನ್ ಸಂಖ್ಯೆ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ',
+    toastServerErr:     'ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ',
+    toastRegErr:        'ಎಲ್ಲಾ ಮಾಹಿತಿ ತುಂಬಿರಿ',
+    toastRegOk:         'ನೋಂದಣಿ ಯಶಸ್ವಿ! ಸ್ವಾಗತ',
+    toastWelcome:       'ಸ್ವಾಗತ',
+  },
+  en: {
+    heroTitle:          'GramSeva',
+    heroSub:            'Panchayat Complaint Management System',
+    roleCitizen:        'Citizen',
+    roleAdmin:          'Panchayat Officer',
+    labelPhone:         '📱 Phone Number / ID',
+    labelPass:          '🔒 Password',
+    phonePlaceholder:   'Enter phone number',
+    passPlaceholder:    'Enter password',
+    loginBtn:           'Login',
+    newCitizen:         'New citizen?',
+    registerLink:       'Register here',
+    regTitle:           'Create New Account',
+    labelRegName:       '👤 Name',
+    labelRegPhone:      '📱 Phone Number',
+    labelRegPass:       '🔒 Password',
+    regNamePh:          'Your full name',
+    regPhonePh:         '10-digit mobile number',
+    regPassPh:          'Minimum 6 characters',
+    regBtn:             'Register',
+    alreadyAccount:     'Already have an account?',
+    loginLink:          'Login here',
+    demo:               'Demo:',
+    brandName:          'GramSeva',
+    cBrandSub:          'Citizen Portal',
+    aBrandSub:          'Admin Panel',
+    aAdminLabel:        'Panchayat Officer',
+    ctabNew:            'File Complaint',
+    ctabMy:             'My Complaints',
+    ctabFeedback:       'Feedback',
+    atabDashboard:      'Dashboard',
+    atabFeedback:       'Feedback',
+    langToggle:         '🌐 ಕನ್ನಡ',
+    toastLoginErr:      'Please enter phone number and password',
+    toastServerErr:     'Could not connect to server',
+    toastRegErr:        'Please fill all fields',
+    toastRegOk:         'Registration successful! Welcome',
+    toastWelcome:       'Welcome',
+  }
+};
+
+// ─── Language Switcher ────────────────────────────────────────────────────────
+function setLang(lang) {
+  currentLang = lang;
+  const t = T[lang];
+
+  // Login page
+  const heroTitle = document.getElementById('hero-title');
+  if (heroTitle) heroTitle.textContent = t.heroTitle;
+  const heroSub = document.getElementById('hero-sub');
+  if (heroSub) heroSub.textContent = t.heroSub;
+
+  const roleCit = document.getElementById('role-citizen-label');
+  if (roleCit) roleCit.textContent = t.roleCitizen;
+  const roleAdm = document.getElementById('role-admin-label');
+  if (roleAdm) roleAdm.textContent = t.roleAdmin;
+
+  const lPhone = document.getElementById('label-phone');
+  if (lPhone) lPhone.textContent = t.labelPhone;
+  const lPass  = document.getElementById('label-pass');
+  if (lPass)  lPass.textContent  = t.labelPass;
+
+  const phoneFld = document.getElementById('login-phone');
+  if (phoneFld) phoneFld.placeholder = t.phonePlaceholder;
+  const passFld  = document.getElementById('login-pass');
+  if (passFld)  passFld.placeholder  = t.passPlaceholder;
+
+  const loginBtnText = document.getElementById('login-btn-text');
+  if (loginBtnText) loginBtnText.textContent = t.loginBtn;
+
+  const newCit = document.getElementById('new-citizen-text');
+  if (newCit) newCit.textContent = t.newCitizen;
+  const regLink = document.getElementById('register-link-text');
+  if (regLink) regLink.textContent = t.registerLink;
+
+  const regTitle = document.getElementById('reg-title');
+  if (regTitle) regTitle.textContent = t.regTitle;
+  const lRegName = document.getElementById('label-reg-name');
+  if (lRegName) lRegName.textContent = t.labelRegName;
+  const lRegPhone = document.getElementById('label-reg-phone');
+  if (lRegPhone) lRegPhone.textContent = t.labelRegPhone;
+  const lRegPass = document.getElementById('label-reg-pass');
+  if (lRegPass) lRegPass.textContent = t.labelRegPass;
+
+  const regNameFld = document.getElementById('reg-name');
+  if (regNameFld) regNameFld.placeholder = t.regNamePh;
+  const regPhoneFld = document.getElementById('reg-phone');
+  if (regPhoneFld) regPhoneFld.placeholder = t.regPhonePh;
+  const regPassFld = document.getElementById('reg-pass');
+  if (regPassFld) regPassFld.placeholder = t.regPassPh;
+
+  const regBtnText = document.getElementById('reg-btn-text');
+  if (regBtnText) regBtnText.textContent = t.regBtn;
+  const alreadyAcc = document.getElementById('already-account-text');
+  if (alreadyAcc) alreadyAcc.textContent = t.alreadyAccount;
+  const loginLnk = document.getElementById('login-link-text');
+  if (loginLnk) loginLnk.textContent = t.loginLink;
+
+  const demoLbl = document.getElementById('demo-label');
+  if (demoLbl) demoLbl.textContent = t.demo;
+
+  // Citizen page nav
+  const cBrandName = document.getElementById('c-brand-name');
+  if (cBrandName) cBrandName.textContent = t.brandName;
+  const cBrandSub = document.getElementById('c-brand-sub');
+  if (cBrandSub) cBrandSub.textContent = t.cBrandSub;
+
+  const ctabNew = document.getElementById('ctab-new');
+  if (ctabNew) ctabNew.textContent = t.ctabNew;
+  const ctabMy = document.getElementById('ctab-my');
+  if (ctabMy) ctabMy.textContent = t.ctabMy;
+  const ctabFeedback = document.getElementById('ctab-feedback');
+  if (ctabFeedback) ctabFeedback.textContent = t.ctabFeedback;
+
+  const cLangToggle = document.getElementById('c-lang-toggle');
+  if (cLangToggle) cLangToggle.textContent = t.langToggle;
+
+  // Admin page nav
+  const aBrandName = document.getElementById('a-brand-name');
+  if (aBrandName) aBrandName.textContent = t.brandName;
+  const aBrandSub = document.getElementById('a-brand-sub');
+  if (aBrandSub) aBrandSub.textContent = t.aBrandSub;
+  const aAdminLabel = document.getElementById('a-admin-label');
+  if (aAdminLabel) aAdminLabel.textContent = t.aAdminLabel;
+
+  const atabDash = document.getElementById('atab-dashboard');
+  if (atabDash) atabDash.textContent = t.atabDashboard;
+  const atabFb = document.getElementById('atab-feedback');
+  if (atabFb) atabFb.textContent = t.atabFeedback;
+
+  const aLangToggle = document.getElementById('a-lang-toggle');
+  if (aLangToggle) aLangToggle.textContent = t.langToggle;
+
+  // Language button highlights
+  document.getElementById('lang-btn-kn').classList.toggle('active', lang === 'kn');
+  document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+}
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
 function toast(msg, type = 'info') {
@@ -1091,6 +1333,7 @@ function toast(msg, type = 'info') {
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function fmtDate(dt) {
@@ -1137,7 +1380,7 @@ function showLogin() {
 async function doLogin() {
   const phone    = document.getElementById('login-phone').value.trim();
   const password = document.getElementById('login-pass').value;
-  if (!phone || !password) { toast('ಫೋನ್ ಸಂಖ್ಯೆ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ', 'error'); return; }
+  if (!phone || !password) { toast(T[currentLang].toastLoginErr, 'error'); return; }
 
   const btn = document.getElementById('login-btn');
   btn.disabled = true; btn.innerHTML = '<div class="spinner"></div>';
@@ -1151,7 +1394,7 @@ async function doLogin() {
     if (!res.ok) { toast(data.error, 'error'); return; }
 
     currentUser = data.user;
-    toast(`ಸ್ವಾಗತ, ${data.user.name}! 🙏`, 'success');
+    toast(`${T[currentLang].toastWelcome}, ${data.user.name}! 🙏`, 'success');
 
     if (data.user.role === 'admin') {
       showPage('page-admin');
@@ -1161,10 +1404,10 @@ async function doLogin() {
       initCitizenPage();
     }
   } catch (e) {
-    toast('ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ', 'error');
+    toast(T[currentLang].toastServerErr, 'error');
   } finally {
     btn.disabled = false;
-    btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> <span class="kn">ಪ್ರವೇಶಿಸಿ</span>';
+    btn.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> <span id="login-btn-text">${T[currentLang].loginBtn}</span>`;
   }
 }
 
@@ -1172,7 +1415,7 @@ async function doRegister() {
   const name     = document.getElementById('reg-name').value.trim();
   const phone    = document.getElementById('reg-phone').value.trim();
   const password = document.getElementById('reg-pass').value;
-  if (!name || !phone || !password) { toast('ಎಲ್ಲಾ ಮಾಹಿತಿ ತುಂಬಿರಿ', 'error'); return; }
+  if (!name || !phone || !password) { toast(T[currentLang].toastRegErr, 'error'); return; }
 
   try {
     const res  = await fetch(`${API}/api/register`, {
@@ -1183,7 +1426,7 @@ async function doRegister() {
     if (!res.ok) { toast(data.error, 'error'); return; }
 
     currentUser = data.user;
-    toast(`ನೋಂದಣಿ ಯಶಸ್ವಿ! ಸ್ವಾಗತ ${data.user.name}`, 'success');
+    toast(`${T[currentLang].toastRegOk} ${data.user.name}`, 'success');
     showPage('page-citizen');
     initCitizenPage();
   } catch (e) {
@@ -1206,6 +1449,7 @@ function doLogout() {
 // ─── Citizen Page ──────────────────────────────────────────────────────────────
 function initCitizenPage() {
   document.getElementById('citizen-name-disp').textContent = currentUser.name;
+  setLang(currentLang); // apply current language to newly visible page
   citizenTab('new');
   initMap();
   loadDepartments();
@@ -1398,6 +1642,7 @@ async function loadMyNotifications() {
 
 // ─── Admin Page ────────────────────────────────────────────────────────────────
 function initAdminPage() {
+  setLang(currentLang); // apply current language to newly visible page
   adminTab('dashboard');
   loadStats();
   loadAdminIssues();
