@@ -688,8 +688,8 @@
   <div id="page-login" class="page active">
     <div class="login-hero">
       <div class="logo-ring">🌿</div>
-      <h1 id="hero-title">ಗ್ರಾಮ ಸೇವಾ</h1>
-      <p id="hero-sub">ಪಂಚಾಯತ್ ದೂರು ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ</p>
+      <h1 id="hero-title" data-i18n="heroTitle">ಗ್ರಾಮ ಸೇವಾ</h1>
+      <p id="hero-sub" data-i18n="heroSub">ಪಂಚಾಯತ್ ದೂರು ನಿರ್ವಹಣಾ ವ್ಯವಸ್ಥೆ</p>
     </div>
 
     <div class="login-box">
@@ -704,58 +704,58 @@
       <div class="role-tabs" id="role-tabs">
         <div class="role-tab active" id="tab-citizen" onclick="selectRole('citizen')">
           <i class="fa-solid fa-user"></i>
-          <span id="role-citizen-label">ನಾಗರಿಕ</span>
+          <span id="role-citizen-label" data-i18n="roleCitizen">ನಾಗರಿಕ</span>
         </div>
         <div class="role-tab" id="tab-admin" onclick="selectRole('admin')">
           <i class="fa-solid fa-landmark"></i>
-          <span id="role-admin-label">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
+          <span id="role-admin-label" data-i18n="roleAdmin">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
         </div>
       </div>
 
       <!-- Login form -->
       <div class="card p-6" id="login-form">
         <div class="input-group">
-          <label for="login-phone" id="label-phone">📱 ಫೋನ್ ಸಂಖ್ಯೆ / ID</label>
+          <label for="login-phone" id="label-phone" data-i18n="labelPhone">📱 ಫೋನ್ ಸಂಖ್ಯೆ / ID</label>
           <input type="text" id="login-phone" placeholder="ಫೋನ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ" />
         </div>
         <div class="input-group">
-          <label for="login-pass" id="label-pass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
+          <label for="login-pass" id="label-pass" data-i18n="labelPass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
           <input type="password" id="login-pass" placeholder="ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ" onkeydown="if(event.key==='Enter') doLogin()" />
         </div>
         <button class="btn btn-primary btn-full" onclick="doLogin()" id="login-btn">
-          <i class="fa-solid fa-right-to-bracket"></i> <span id="login-btn-text">ಪ್ರವೇಶಿಸಿ</span>
+          <i class="fa-solid fa-right-to-bracket"></i> <span id="login-btn-text" data-i18n="loginBtn">ಪ್ರವೇಶಿಸಿ</span>
         </button>
         <div class="login-footer" id="login-register-link">
-          <span id="new-citizen-text">ಹೊಸ ನಾಗರಿಕರೇ?</span> <a onclick="showRegister()" id="register-link-text">ಇಲ್ಲಿ ನೋಂದಾಯಿಸಿ</a>
+          <span id="new-citizen-text" data-i18n="newCitizen">ಹೊಸ ನಾಗರಿಕರೇ?</span> <a onclick="showRegister()" id="register-link-text" data-i18n="registerLink">ಇಲ್ಲಿ ನೋಂದಾಯಿಸಿ</a>
         </div>
       </div>
 
       <!-- Register form -->
       <div class="card p-6" id="register-form">
-        <div class="section-title"><i class="fa-solid fa-user-plus"></i> <span id="reg-title">ಹೊಸ ಖಾತೆ ತೆರೆಯಿರಿ</span></div>
+        <div class="section-title"><i class="fa-solid fa-user-plus"></i> <span id="reg-title" data-i18n="regTitle">ಹೊಸ ಖಾತೆ ತೆರೆಯಿರಿ</span></div>
         <div class="input-group">
-          <label for="reg-name" id="label-reg-name">👤 ಹೆಸರು</label>
+          <label for="reg-name" id="label-reg-name" data-i18n="labelRegName">👤 ಹೆಸರು</label>
           <input type="text" id="reg-name" placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" />
         </div>
         <div class="input-group">
-          <label for="reg-phone" id="label-reg-phone">📱 ಫೋನ್ ಸಂಖ್ಯೆ</label>
+          <label for="reg-phone" id="label-reg-phone" data-i18n="labelRegPhone">📱 ಫೋನ್ ಸಂಖ್ಯೆ</label>
           <input type="text" id="reg-phone" placeholder="10 ಅಂಕೆಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" />
         </div>
         <div class="input-group">
-          <label for="reg-pass" id="label-reg-pass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
+          <label for="reg-pass" id="label-reg-pass" data-i18n="labelRegPass">🔒 ಪಾಸ್‌ವರ್ಡ್</label>
           <input type="password" id="reg-pass" placeholder="ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು" />
         </div>
         <button class="btn btn-accent btn-full" onclick="doRegister()">
-          <i class="fa-solid fa-user-check"></i> <span id="reg-btn-text">ನೋಂದಾಯಿಸಿ</span>
+          <i class="fa-solid fa-user-check"></i> <span id="reg-btn-text" data-i18n="regBtn">ನೋಂದಾಯಿಸಿ</span>
         </button>
         <div class="login-footer" style="margin-top:14px">
-          <span id="already-account-text">ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ?</span> <a onclick="showLogin()" id="login-link-text">ಲಾಗಿನ್ ಮಾಡಿ</a>
+          <span id="already-account-text" data-i18n="alreadyAccount">ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ?</span> <a onclick="showLogin()" id="login-link-text" data-i18n="loginLink">ಲಾಗಿನ್ ಮಾಡಿ</a>
         </div>
       </div>
 
       <!-- Demo credentials hint -->
       <div style="margin-top:16px; text-align:center; font-size:0.75rem; color:var(--text-3);">
-        <span id="demo-label">ಡೆಮೋ:</span>
+        <span id="demo-label" data-i18n="demo">ಡೆಮೋ:</span>
         Admin → <strong>admin / admin123</strong> &nbsp;|&nbsp;
         Citizen → <strong>9900000001 / citizen1</strong>
       </div>
@@ -771,17 +771,17 @@
       <div class="topnav-brand">
         <div class="ring">🌿</div>
         <div>
-          <div class="brand-name" id="c-brand-name">ಗ್ರಾಮ ಸೇವಾ</div>
-          <div class="brand-sub" id="c-brand-sub">ನಾಗರಿಕ ಪೋರ್ಟಲ್</div>
+          <div class="brand-name" id="c-brand-name" data-i18n="brandName">ಗ್ರಾಮ ಸೇವಾ</div>
+          <div class="brand-sub" id="c-brand-sub" data-i18n="cBrandSub">ನಾಗರಿಕ ಪೋರ್ಟಲ್</div>
         </div>
       </div>
       <div class="nav-tabs">
-        <button class="nav-tab active" onclick="citizenTab('new')"    id="ctab-new">ದೂರು ಸಲ್ಲಿಸಿ</button>
-        <button class="nav-tab"        onclick="citizenTab('my')"     id="ctab-my">ನನ್ನ ದೂರುಗಳು</button>
-        <button class="nav-tab"        onclick="citizenTab('feedback')" id="ctab-feedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
+        <button class="nav-tab active" onclick="citizenTab('new')"    id="ctab-new" data-i18n="ctabNew">ದೂರು ಸಲ್ಲಿಸಿ</button>
+        <button class="nav-tab"        onclick="citizenTab('my')"     id="ctab-my" data-i18n="ctabMy">ನನ್ನ ದೂರುಗಳು</button>
+        <button class="nav-tab"        onclick="citizenTab('feedback')" id="ctab-feedback" data-i18n="ctabFeedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
       </div>
       <div class="topnav-user">
-        <button class="nav-lang-btn" onclick="setLang(currentLang === 'kn' ? 'en' : 'kn')" id="c-lang-toggle">🌐 EN</button>
+        <button class="nav-lang-btn" onclick="setLang(currentLang === 'kn' ? 'en' : 'kn')" id="c-lang-toggle" data-i18n="langToggle">🌐 EN</button>
         <div class="user-chip">
           <i class="fa-solid fa-user"></i>
           <span id="citizen-name-disp"></span>
@@ -801,41 +801,41 @@
         <!-- Left: Form -->
         <div>
           <div class="card p-6 mb-4">
-            <div class="section-title kn"><i class="fa-solid fa-file-circle-plus"></i> ಹೊಸ ದೂರು ಸಲ್ಲಿಸಿ</div>
+            <div class="section-title"><i class="fa-solid fa-file-circle-plus"></i> <span data-i18n="cFormTitle">ಹೊಸ ದೂರು ಸಲ್ಲಿಸಿ</span></div>
 
             <div class="input-group">
-              <label class="kn">🏷️ ಸಮಸ್ಯೆಯ ವರ್ಗ</label>
+              <label><span data-i18n="cCatLabel">🏷️ ಸಮಸ್ಯೆಯ ವರ್ಗ</span></label>
               <select id="c-category">
-                <option value="" class="kn">-- ವರ್ಗ ಆಯ್ಕೆ ಮಾಡಿ --</option>
-                <option value="ರಸ್ತೆ ಹಾನಿ">🛣️ ರಸ್ತೆ ಹಾನಿ</option>
-                <option value="ನೀರಿನ ಸೋರಿಕೆ">💧 ನೀರಿನ ಸೋರಿಕೆ</option>
-                <option value="ಬೀದಿ ದೀಪ">💡 ಬೀದಿ ದೀಪ</option>
-                <option value="ಶೌಚಾಲಯ">🚻 ಶೌಚಾಲಯ</option>
-                <option value="ಕಸ ವಿಲೇವಾರಿ">🗑️ ಕಸ ವಿಲೇವಾರಿ</option>
-                <option value="ಮರ / ಅಪಾಯ">🌳 ಮರ / ಅಪಾಯ</option>
-                <option value="ಚರಂಡಿ ಸಮಸ್ಯೆ">🌊 ಚರಂಡಿ ಸಮಸ್ಯೆ</option>
-                <option value="ಇತರೆ">📋 ಇತರೆ</option>
+                <option value="" id="c-cat-default">-- ವರ್ಗ ಆಯ್ಕೆ ಮಾಡಿ --</option>
+                <option value="ರಸ್ತೆ ಹಾನಿ">🛣️ ರಸ್ತೆ ಹಾನಿ / Road Damage</option>
+                <option value="ನೀರಿನ ಸೋರಿಕೆ">💧 ನೀರಿನ ಸೋರಿಕೆ / Water Leak</option>
+                <option value="ಬೀದಿ ದೀಪ">💡 ಬೀದಿ ದೀಪ / Street Light</option>
+                <option value="ಶೌಚಾಲಯ">🚻 ಶೌಚಾಲಯ / Toilet</option>
+                <option value="ಕಸ ವಿಲೇವಾರಿ">🗑️ ಕಸ ವಿಲೇವಾರಿ / Waste Disposal</option>
+                <option value="ಮರ / ಅಪಾಯ">🌳 ಮರ / ಅಪಾಯ / Tree Hazard</option>
+                <option value="ಚರಂಡಿ ಸಮಸ್ಯೆ">🌊 ಚರಂಡಿ ಸಮಸ್ಯೆ / Drainage</option>
+                <option value="ಇತರೆ">📋 ಇತರೆ / Other</option>
               </select>
             </div>
 
             <div class="input-group">
-              <label class="kn">📝 ಸಮಸ್ಯೆಯ ವಿವರ</label>
-              <textarea id="c-desc" class="kn" placeholder="ಸಮಸ್ಯೆಯ ಬಗ್ಗೆ ವಿಸ್ತಾರವಾಗಿ ತಿಳಿಸಿ..."></textarea>
+              <label><span data-i18n="cDescLabel">📝 ಸಮಸ್ಯೆಯ ವಿವರ</span></label>
+              <textarea id="c-desc" placeholder="ಸಮಸ್ಯೆಯ ಬಗ್ಗೆ ವಿಸ್ತಾರವಾಗಿ ತಿಳಿಸಿ..."></textarea>
             </div>
 
             <!-- Photo upload -->
             <div class="input-group">
-              <label class="kn">📸 ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</label>
+              <label><span data-i18n="cPhotoLabel">📸 ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</span></label>
               <div class="photo-drop" id="photo-drop-area">
                 <input type="file" id="c-photo" accept="image/*" onchange="handlePhotoUpload(this, 'c-photo-preview', 'photo-drop-area')" />
                 <div class="photo-icon"><i class="fa-solid fa-camera"></i></div>
-                <p class="kn">ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ಫೋಟೋ ಎಳೆದು ತನ್ನಿ</p>
+                <p id="c-photo-drop-text" data-i18n="cPhotoDrop">ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ಫೋಟೋ ಎಳೆದು ತನ್ನಿ</p>
                 <img id="c-photo-preview" class="photo-preview" style="display:none" />
               </div>
             </div>
 
             <button class="btn btn-primary btn-full" onclick="submitComplaint()" id="submit-btn">
-              <i class="fa-solid fa-paper-plane"></i> <span class="kn">ದೂರು ಸಲ್ಲಿಸಿ</span>
+              <i class="fa-solid fa-paper-plane"></i> <span data-i18n="cSubmitBtn">ದೂರು ಸಲ್ಲಿಸಿ</span>
             </button>
           </div>
         </div>
@@ -843,18 +843,18 @@
         <!-- Right: Map + location -->
         <div>
           <div class="card p-6">
-            <div class="section-title kn"><i class="fa-solid fa-map-location-dot"></i> ಸ್ಥಳ ಗುರುತಿಸಿ</div>
+            <div class="section-title"><i class="fa-solid fa-map-location-dot"></i> <span data-i18n="cMapTitle">ಸ್ಥಳ ಗುರುತಿಸಿ</span></div>
             <div id="map-picker" class="mb-4"></div>
             <button class="btn btn-ghost btn-sm w-full mb-3" onclick="detectLocation()">
-              <i class="fa-solid fa-crosshairs"></i> <span class="kn">ನನ್ನ ಸ್ಥಳ ಪತ್ತೆಮಾಡಿ</span>
+              <i class="fa-solid fa-crosshairs"></i> <span data-i18n="cDetectBtn">ನನ್ನ ಸ್ಥಳ ಪತ್ತೆಮಾಡಿ</span>
             </button>
             <div class="flex gap-2">
               <div class="input-group" style="flex:1;margin-bottom:0">
-                <label class="kn" style="font-size:0.72rem">ಅಕ್ಷಾಂಶ</label>
+                <label style="font-size:0.72rem" data-i18n="cLatLabel">ಅಕ್ಷಾಂಶ</label>
                 <input type="number" id="c-lat" placeholder="Latitude" step="0.0001" oninput="updateMapFromInputs()" />
               </div>
               <div class="input-group" style="flex:1;margin-bottom:0">
-                <label class="kn" style="font-size:0.72rem">ರೇಖಾಂಶ</label>
+                <label style="font-size:0.72rem" data-i18n="cLngLabel">ರೇಖಾಂಶ</label>
                 <input type="number" id="c-lng" placeholder="Longitude" step="0.0001" oninput="updateMapFromInputs()" />
               </div>
             </div>
@@ -866,7 +866,7 @@
     <!-- Tab: My Issues -->
     <div id="c-section-my" class="citizen-section" style="display:none">
       <div class="card p-6">
-        <div class="section-title kn"><i class="fa-solid fa-list-check"></i> ನನ್ನ ದೂರುಗಳು</div>
+        <div class="section-title"><i class="fa-solid fa-list-check"></i> <span data-i18n="cMyTitle">ನನ್ನ ದೂರುಗಳು</span></div>
         <div id="my-issues-list">
           <div class="empty-state"><div class="spinner" style="margin:0 auto"></div></div>
         </div>
@@ -876,7 +876,7 @@
     <!-- Tab: Public Feedback -->
     <div id="c-section-feedback" class="citizen-section" style="display:none">
       <div class="card p-6 mb-4">
-        <div class="section-title kn"><i class="fa-solid fa-star"></i> ನಾಗರಿಕ ಪ್ರತಿಕ್ರಿಯೆಗಳು</div>
+        <div class="section-title"><i class="fa-solid fa-star"></i> <span data-i18n="cFbTitle">ನಾಗರಿಕ ಪ್ರತಿಕ್ರಿಯೆಗಳು</span></div>
         <div id="citizen-feedback-grid" class="feedback-grid">
           <div class="empty-state"><div class="spinner" style="margin:0 auto"></div></div>
         </div>
@@ -893,19 +893,19 @@
       <div class="topnav-brand">
         <div class="ring">🌿</div>
         <div>
-          <div class="brand-name" id="a-brand-name">ಗ್ರಾಮ ಸೇವಾ</div>
-          <div class="brand-sub" id="a-brand-sub">ಆಡಳಿತ ಪ್ಯಾನಲ್</div>
+          <div class="brand-name" id="a-brand-name" data-i18n="brandName">ಗ್ರಾಮ ಸೇವಾ</div>
+          <div class="brand-sub" id="a-brand-sub" data-i18n="aBrandSub">ಆಡಳಿತ ಪ್ಯಾನಲ್</div>
         </div>
       </div>
       <div class="nav-tabs">
-        <button class="nav-tab active" onclick="adminTab('dashboard')" id="atab-dashboard">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</button>
-        <button class="nav-tab"        onclick="adminTab('feedback')"  id="atab-feedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
+        <button class="nav-tab active" onclick="adminTab('dashboard')" id="atab-dashboard" data-i18n="atabDashboard">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</button>
+        <button class="nav-tab"        onclick="adminTab('feedback')"  id="atab-feedback" data-i18n="atabFeedback">ಪ್ರತಿಕ್ರಿಯೆ</button>
       </div>
       <div class="topnav-user">
-        <button class="nav-lang-btn" onclick="setLang(currentLang === 'kn' ? 'en' : 'kn')" id="a-lang-toggle">🌐 EN</button>
+        <button class="nav-lang-btn" onclick="setLang(currentLang === 'kn' ? 'en' : 'kn')" id="a-lang-toggle" data-i18n="langToggle">🌐 EN</button>
         <div class="user-chip">
           <i class="fa-solid fa-landmark"></i>
-          <span id="a-admin-label">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
+          <span id="a-admin-label" data-i18n="aAdminLabel">ಪಂಚಾಯತ್ ಅಧಿಕಾರಿ</span>
         </div>
         <button class="btn btn-ghost btn-sm" onclick="doLogout()">
           <i class="fa-solid fa-sign-out-alt"></i>
@@ -917,19 +917,19 @@
     <div id="new-issue-popup">
       <div class="popup-header">
         <div class="popup-ping"></div>
-        <h4 class="kn">ಹೊಸ ದೂರು ಬಂದಿದೆ!</h4>
+        <h4 data-i18n="aNewIssue">ಹೊಸ ದೂರು ಬಂದಿದೆ!</h4>
         <button class="popup-close" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="popup-body" id="popup-body">
-        <p class="kn">ವರ್ಗ: <strong id="popup-cat"></strong></p>
-        <p class="kn">ಟಿಕೆಟ್: <strong id="popup-ticket"></strong></p>
-        <p class="kn">ಸಲ್ಲಿಸಿದವರು: <strong id="popup-citizen"></strong></p>
+        <p><span data-i18n="aPopupCat">ವರ್ಗ</span>: <strong id="popup-cat"></strong></p>
+        <p><span data-i18n="aPopupTicket">ಟಿಕೆಟ್</span>: <strong id="popup-ticket"></strong></p>
+        <p><span data-i18n="aPopupCitizen">ಸಲ್ಲಿಸಿದವರು</span>: <strong id="popup-citizen"></strong></p>
       </div>
       <div class="popup-actions">
-        <button class="btn btn-primary btn-sm kn" onclick="popupAssign()">
-          <i class="fa-solid fa-sitemap"></i> ವಿಭಾಗ ನಿಯೋಜಿಸಿ
+        <button class="btn btn-primary btn-sm" onclick="popupAssign()">
+          <i class="fa-solid fa-sitemap"></i> <span data-i18n="aAssignBtn">ವಿಭಾಗ ನಿಯೋಜಿಸಿ</span>
         </button>
-        <button class="btn btn-ghost btn-sm kn" onclick="closePopup()">ನಂತರ ನೋಡುತ್ತೇನೆ</button>
+        <button class="btn btn-ghost btn-sm" onclick="closePopup()" data-i18n="aLaterBtn">ನಂತರ ನೋಡುತ್ತೇನೆ</button>
       </div>
     </div>
 
@@ -939,42 +939,42 @@
       <div class="stats-row" id="stats-row">
         <div class="stat-card">
           <div class="stat-icon purple"><i class="fa-solid fa-file-lines"></i></div>
-          <div><div class="stat-num" id="stat-total">—</div><div class="stat-lbl kn">ಒಟ್ಟು ದೂರುಗಳು</div></div>
+          <div><div class="stat-num" id="stat-total">—</div><div class="stat-lbl" data-i18n="aStatTotal">ಒಟ್ಟು ದೂರುಗಳು</div></div>
         </div>
         <div class="stat-card">
           <div class="stat-icon amber"><i class="fa-solid fa-circle-exclamation"></i></div>
-          <div><div class="stat-num" id="stat-reported">—</div><div class="stat-lbl kn">ಹೊಸ ದೂರುಗಳು</div></div>
+          <div><div class="stat-num" id="stat-reported">—</div><div class="stat-lbl" data-i18n="aStatNew">ಹೊಸ ದೂರುಗಳು</div></div>
         </div>
         <div class="stat-card">
           <div class="stat-icon blue"><i class="fa-solid fa-gears"></i></div>
-          <div><div class="stat-num" id="stat-progress">—</div><div class="stat-lbl kn">ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ</div></div>
+          <div><div class="stat-num" id="stat-progress">—</div><div class="stat-lbl" data-i18n="aStatProgress">ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ</div></div>
         </div>
         <div class="stat-card">
           <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
-          <div><div class="stat-num" id="stat-resolved">—</div><div class="stat-lbl kn">ಪರಿಹಾರವಾಗಿದೆ</div></div>
+          <div><div class="stat-num" id="stat-resolved">—</div><div class="stat-lbl" data-i18n="aStatResolved">ಪರಿಹಾರವಾಗಿದೆ</div></div>
         </div>
       </div>
 
       <!-- Filter + Table -->
       <div class="card p-6">
-        <div class="section-title kn"><i class="fa-solid fa-table-list"></i> ಎಲ್ಲಾ ದೂರುಗಳು</div>
+        <div class="section-title"><i class="fa-solid fa-table-list"></i> <span data-i18n="aAllComplaints">ಎಲ್ಲಾ ದೂರುಗಳು</span></div>
 
         <div class="filter-bar">
-          <select id="filter-status" onchange="loadAdminIssues()" class="kn">
-            <option value="All">ಎಲ್ಲಾ ಸ್ಥಿತಿ</option>
-            <option value="ವರದಿಯಾಗಿದೆ">ವರದಿಯಾಗಿದೆ</option>
-            <option value="ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ">ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ</option>
-            <option value="ಪರಿಹಾರವಾಗಿದೆ">ಪರಿಹಾರವಾಗಿದೆ</option>
+          <select id="filter-status" onchange="loadAdminIssues()">
+            <option value="All" data-i18n="aFilterAllStatus">ಎಲ್ಲಾ ಸ್ಥಿತಿ</option>
+            <option value="ವರದಿಯಾಗಿದೆ">ವರದಿಯಾಗಿದೆ / Reported</option>
+            <option value="ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ">ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ / In Progress</option>
+            <option value="ಪರಿಹಾರವಾಗಿದೆ">ಪರಿಹಾರವಾಗಿದೆ / Resolved</option>
           </select>
-          <select id="filter-category" onchange="loadAdminIssues()" class="kn">
-            <option value="All">ಎಲ್ಲಾ ವರ್ಗ</option>
-            <option value="ರಸ್ತೆ ಹಾನಿ">ರಸ್ತೆ ಹಾನಿ</option>
-            <option value="ನೀರಿನ ಸೋರಿಕೆ">ನೀರಿನ ಸೋರಿಕೆ</option>
-            <option value="ಬೀದಿ ದೀಪ">ಬೀದಿ ದೀಪ</option>
-            <option value="ಶೌಚಾಲಯ">ಶೌಚಾಲಯ</option>
-            <option value="ಕಸ ವಿಲೇವಾರಿ">ಕಸ ವಿಲೇವಾರಿ</option>
-            <option value="ಚರಂಡಿ ಸಮಸ್ಯೆ">ಚರಂಡಿ ಸಮಸ್ಯೆ</option>
-            <option value="ಇತರೆ">ಇತರೆ</option>
+          <select id="filter-category" onchange="loadAdminIssues()">
+            <option value="All" data-i18n="aFilterAllCat">ಎಲ್ಲಾ ವರ್ಗ</option>
+            <option value="ರಸ್ತೆ ಹಾನಿ">🛣️ ರಸ್ತೆ ಹಾನಿ / Road Damage</option>
+            <option value="ನೀರಿನ ಸೋರಿಕೆ">💧 ನೀರಿನ ಸೋರಿಕೆ / Water Leak</option>
+            <option value="ಬೀದಿ ದೀಪ">💡 ಬೀದಿ ದೀಪ / Street Light</option>
+            <option value="ಶೌಚಾಲಯ">🚻 ಶೌಚಾಲಯ / Toilet</option>
+            <option value="ಕಸ ವಿಲೇವಾರಿ">🗑️ ಕಸ ವಿಲೇವಾರಿ / Waste</option>
+            <option value="ಚರಂಡಿ ಸಮಸ್ಯೆ">🌊 ಚರಂಡಿ ಸಮಸ್ಯೆ / Drainage</option>
+            <option value="ಇತರೆ">📋 ಇತರೆ / Other</option>
           </select>
           <button class="btn btn-ghost btn-sm" onclick="loadAdminIssues()">
             <i class="fa-solid fa-rotate-right"></i>
@@ -985,14 +985,14 @@
           <table class="admin-table">
             <thead>
               <tr>
-                <th class="kn">ಟಿಕೆಟ್</th>
-                <th class="kn">ವರ್ಗ</th>
-                <th class="kn">ನಾಗರಿಕ</th>
-                <th class="kn">ಫೋನ್</th>
-                <th class="kn">ವಿಭಾಗ</th>
-                <th class="kn">ಸ್ಥಿತಿ</th>
-                <th class="kn">ದಿನಾಂಕ</th>
-                <th class="kn">ಕ್ರಿಯೆ</th>
+                <th data-i18n="aTHTicket">ಟಿಕೆಟ್</th>
+                <th data-i18n="aTHCat">ವರ್ಗ</th>
+                <th data-i18n="aTHCitizen">ನಾಗರಿಕ</th>
+                <th data-i18n="aTHPhone">ಫೋನ್</th>
+                <th data-i18n="aTHDept">ವಿಭಾಗ</th>
+                <th data-i18n="aTHStatus">ಸ್ಥಿತಿ</th>
+                <th data-i18n="aTHDate">ದಿನಾಂಕ</th>
+                <th data-i18n="aTHAction">ಕ್ರಿಯೆ</th>
               </tr>
             </thead>
             <tbody id="admin-table-body">
@@ -1006,7 +1006,7 @@
     <!-- Admin: Feedback section -->
     <div id="a-section-feedback" style="display:none">
       <div class="card p-6">
-        <div class="section-title kn"><i class="fa-solid fa-star-half-stroke"></i> ನಾಗರಿಕ ಪ್ರತಿಕ್ರಿಯೆಗಳು</div>
+        <div class="section-title"><i class="fa-solid fa-star-half-stroke"></i> <span data-i18n="aFbTitle">ನಾಗರಿಕ ಪ್ರತಿಕ್ರಿಯೆಗಳು</span></div>
         <div id="admin-feedback-grid" class="feedback-grid">
           <div class="empty-state"><div class="spinner" style="margin:0 auto"></div></div>
         </div>
@@ -1182,6 +1182,44 @@ const T = {
     toastRegErr:        'ಎಲ್ಲಾ ಮಾಹಿತಿ ತುಂಬಿರಿ',
     toastRegOk:         'ನೋಂದಣಿ ಯಶಸ್ವಿ! ಸ್ವಾಗತ',
     toastWelcome:       'ಸ್ವಾಗತ',
+    // Citizen form
+    cFormTitle:         'ಹೊಸ ದೂರು ಸಲ್ಲಿಸಿ',
+    cCatLabel:          '🏷️ ಸಮಸ್ಯೆಯ ವರ್ಗ',
+    cCatDefault:        '-- ವರ್ಗ ಆಯ್ಕೆ ಮಾಡಿ --',
+    cDescLabel:         '📝 ಸಮಸ್ಯೆಯ ವಿವರ',
+    cDescPh:            'ಸಮಸ್ಯೆಯ ಬಗ್ಗೆ ವಿಸ್ತಾರವಾಗಿ ತಿಳಿಸಿ...',
+    cPhotoLabel:        '📸 ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ',
+    cPhotoDrop:         'ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ಫೋಟೋ ಎಳೆದು ತನ್ನಿ',
+    cSubmitBtn:         'ದೂರು ಸಲ್ಲಿಸಿ',
+    cMapTitle:          'ಸ್ಥಳ ಗುರುತಿಸಿ',
+    cDetectBtn:         'ನನ್ನ ಸ್ಥಳ ಪತ್ತೆಮಾಡಿ',
+    cLatLabel:          'ಅಕ್ಷಾಂಶ',
+    cLngLabel:          'ರೇಖಾಂಶ',
+    cMyTitle:           'ನನ್ನ ದೂರುಗಳು',
+    cFbTitle:           'ನಾಗರಿಕ ಪ್ರತಿಕ್ರಿಯೆಗಳು',
+    // Admin
+    aNewIssue:          'ಹೊಸ ದೂರು ಬಂದಿದೆ!',
+    aPopupCat:          'ವರ್ಗ',
+    aPopupTicket:       'ಟಿಕೆಟ್',
+    aPopupCitizen:      'ಸಲ್ಲಿಸಿದವರು',
+    aAssignBtn:         'ವಿಭಾಗ ನಿಯೋಜಿಸಿ',
+    aLaterBtn:          'ನಂತರ ನೋಡುತ್ತೇನೆ',
+    aStatTotal:         'ಒಟ್ಟು ದೂರುಗಳು',
+    aStatNew:           'ಹೊಸ ದೂರುಗಳು',
+    aStatProgress:      'ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿದೆ',
+    aStatResolved:      'ಪರಿಹಾರವಾಗಿದೆ',
+    aAllComplaints:     'ಎಲ್ಲಾ ದೂರುಗಳು',
+    aFilterAllStatus:   'ಎಲ್ಲಾ ಸ್ಥಿತಿ',
+    aFilterAllCat:      'ಎಲ್ಲಾ ವರ್ಗ',
+    aTHTicket:          'ಟಿಕೆಟ್',
+    aTHCat:             'ವರ್ಗ',
+    aTHCitizen:         'ನಾಗರಿಕ',
+    aTHPhone:           'ಫೋನ್',
+    aTHDept:            'ವಿಭಾಗ',
+    aTHStatus:          'ಸ್ಥಿತಿ',
+    aTHDate:            'ದಿನಾಂಕ',
+    aTHAction:          'ಕ್ರಿಯೆ',
+    aFbTitle:           'ನಾಗರಿಕ ಪ್ರತಿಕ್ರಿಯೆಗಳು',
   },
   en: {
     heroTitle:          'GramSeva',
@@ -1221,6 +1259,44 @@ const T = {
     toastRegErr:        'Please fill all fields',
     toastRegOk:         'Registration successful! Welcome',
     toastWelcome:       'Welcome',
+    // Citizen form
+    cFormTitle:         'File New Complaint',
+    cCatLabel:          '🏷️ Issue Category',
+    cCatDefault:        '-- Select Category --',
+    cDescLabel:         '📝 Issue Description',
+    cDescPh:            'Describe the issue in detail...',
+    cPhotoLabel:        '📸 Upload Photo',
+    cPhotoDrop:         'Click here or drag and drop a photo',
+    cSubmitBtn:         'Submit Complaint',
+    cMapTitle:          'Mark Location',
+    cDetectBtn:         'Detect My Location',
+    cLatLabel:          'Latitude',
+    cLngLabel:          'Longitude',
+    cMyTitle:           'My Complaints',
+    cFbTitle:           'Citizen Feedback',
+    // Admin
+    aNewIssue:          'New Complaint Received!',
+    aPopupCat:          'Category',
+    aPopupTicket:       'Ticket',
+    aPopupCitizen:      'Submitted by',
+    aAssignBtn:         'Assign Department',
+    aLaterBtn:          'Check Later',
+    aStatTotal:         'Total Complaints',
+    aStatNew:           'New Complaints',
+    aStatProgress:      'In Progress',
+    aStatResolved:      'Resolved',
+    aAllComplaints:     'All Complaints',
+    aFilterAllStatus:   'All Status',
+    aFilterAllCat:      'All Categories',
+    aTHTicket:          'Ticket',
+    aTHCat:             'Category',
+    aTHCitizen:         'Citizen',
+    aTHPhone:           'Phone',
+    aTHDept:            'Department',
+    aTHStatus:          'Status',
+    aTHDate:            'Date',
+    aTHAction:          'Action',
+    aFbTitle:           'Citizen Feedback',
   }
 };
 
@@ -1229,96 +1305,35 @@ function setLang(lang) {
   currentLang = lang;
   const t = T[lang];
 
-  // Login page
-  const heroTitle = document.getElementById('hero-title');
-  if (heroTitle) heroTitle.textContent = t.heroTitle;
-  const heroSub = document.getElementById('hero-sub');
-  if (heroSub) heroSub.textContent = t.heroSub;
+  // 1. Universal: translate all [data-i18n] elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
 
-  const roleCit = document.getElementById('role-citizen-label');
-  if (roleCit) roleCit.textContent = t.roleCitizen;
-  const roleAdm = document.getElementById('role-admin-label');
-  if (roleAdm) roleAdm.textContent = t.roleAdmin;
-
-  const lPhone = document.getElementById('label-phone');
-  if (lPhone) lPhone.textContent = t.labelPhone;
-  const lPass  = document.getElementById('label-pass');
-  if (lPass)  lPass.textContent  = t.labelPass;
-
+  // 2. Placeholders (inputs/textareas)
   const phoneFld = document.getElementById('login-phone');
   if (phoneFld) phoneFld.placeholder = t.phonePlaceholder;
   const passFld  = document.getElementById('login-pass');
   if (passFld)  passFld.placeholder  = t.passPlaceholder;
-
-  const loginBtnText = document.getElementById('login-btn-text');
-  if (loginBtnText) loginBtnText.textContent = t.loginBtn;
-
-  const newCit = document.getElementById('new-citizen-text');
-  if (newCit) newCit.textContent = t.newCitizen;
-  const regLink = document.getElementById('register-link-text');
-  if (regLink) regLink.textContent = t.registerLink;
-
-  const regTitle = document.getElementById('reg-title');
-  if (regTitle) regTitle.textContent = t.regTitle;
-  const lRegName = document.getElementById('label-reg-name');
-  if (lRegName) lRegName.textContent = t.labelRegName;
-  const lRegPhone = document.getElementById('label-reg-phone');
-  if (lRegPhone) lRegPhone.textContent = t.labelRegPhone;
-  const lRegPass = document.getElementById('label-reg-pass');
-  if (lRegPass) lRegPass.textContent = t.labelRegPass;
-
   const regNameFld = document.getElementById('reg-name');
   if (regNameFld) regNameFld.placeholder = t.regNamePh;
   const regPhoneFld = document.getElementById('reg-phone');
   if (regPhoneFld) regPhoneFld.placeholder = t.regPhonePh;
   const regPassFld = document.getElementById('reg-pass');
   if (regPassFld) regPassFld.placeholder = t.regPassPh;
+  const descFld = document.getElementById('c-desc');
+  if (descFld) descFld.placeholder = t.cDescPh;
 
-  const regBtnText = document.getElementById('reg-btn-text');
-  if (regBtnText) regBtnText.textContent = t.regBtn;
-  const alreadyAcc = document.getElementById('already-account-text');
-  if (alreadyAcc) alreadyAcc.textContent = t.alreadyAccount;
-  const loginLnk = document.getElementById('login-link-text');
-  if (loginLnk) loginLnk.textContent = t.loginLink;
+  // 3. Targeted IDs that need special handling
+  const cCatDefault = document.getElementById('c-cat-default');
+  if (cCatDefault) cCatDefault.textContent = t.cCatDefault;
 
-  const demoLbl = document.getElementById('demo-label');
-  if (demoLbl) demoLbl.textContent = t.demo;
-
-  // Citizen page nav
-  const cBrandName = document.getElementById('c-brand-name');
-  if (cBrandName) cBrandName.textContent = t.brandName;
-  const cBrandSub = document.getElementById('c-brand-sub');
-  if (cBrandSub) cBrandSub.textContent = t.cBrandSub;
-
-  const ctabNew = document.getElementById('ctab-new');
-  if (ctabNew) ctabNew.textContent = t.ctabNew;
-  const ctabMy = document.getElementById('ctab-my');
-  if (ctabMy) ctabMy.textContent = t.ctabMy;
-  const ctabFeedback = document.getElementById('ctab-feedback');
-  if (ctabFeedback) ctabFeedback.textContent = t.ctabFeedback;
-
-  const cLangToggle = document.getElementById('c-lang-toggle');
-  if (cLangToggle) cLangToggle.textContent = t.langToggle;
-
-  // Admin page nav
-  const aBrandName = document.getElementById('a-brand-name');
-  if (aBrandName) aBrandName.textContent = t.brandName;
-  const aBrandSub = document.getElementById('a-brand-sub');
-  if (aBrandSub) aBrandSub.textContent = t.aBrandSub;
-  const aAdminLabel = document.getElementById('a-admin-label');
-  if (aAdminLabel) aAdminLabel.textContent = t.aAdminLabel;
-
-  const atabDash = document.getElementById('atab-dashboard');
-  if (atabDash) atabDash.textContent = t.atabDashboard;
-  const atabFb = document.getElementById('atab-feedback');
-  if (atabFb) atabFb.textContent = t.atabFeedback;
-
-  const aLangToggle = document.getElementById('a-lang-toggle');
-  if (aLangToggle) aLangToggle.textContent = t.langToggle;
-
-  // Language button highlights
-  document.getElementById('lang-btn-kn').classList.toggle('active', lang === 'kn');
-  document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+  // 4. Language toggle buttons highlight
+  const knBtn = document.getElementById('lang-btn-kn');
+  const enBtn = document.getElementById('lang-btn-en');
+  if (knBtn) knBtn.classList.toggle('active', lang === 'kn');
+  if (enBtn) enBtn.classList.toggle('active', lang === 'en');
 }
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
